@@ -3,19 +3,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/primary_green">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="QuickCart"
-        android:textSize="32sp"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        android:fontFamily="sans-serif-medium"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Your Grocery Delivered Fast!"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         android:layout_marginTop="8dp" />
 
 </LinearLayout>

@@ -4,35 +4,50 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@color/light_bg">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter OTP"
-        android:textSize="24sp"
+        android:textColor="@color/text_primary"
+        android:textSize="32sp"
+        android:fontFamily="sans-serif-medium"
         android:textStyle="bold"
-        android:layout_marginBottom="24dp"/>
+        android:layout_marginBottom="8dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please enter 1234 for testing"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp"
+        android:layout_marginBottom="32dp"/>
 
     <EditText
         android:id="@+id/etOtp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
+        android:background="@drawable/bg_input"
         android:hint="OTP"
         android:inputType="number"
-        android:maxLength="4" />
+        android:maxLength="4"
+        android:paddingHorizontal="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/text_primary"
+        android:textColorHint="@color/text_secondary" />
 
     <Button
         android:id="@+id/btnVerifyOtp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Verify &amp; Continue" />
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button"
+        android:text="Verify &amp; Continue"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:textAllCaps="false" />
 
 </LinearLayout>
