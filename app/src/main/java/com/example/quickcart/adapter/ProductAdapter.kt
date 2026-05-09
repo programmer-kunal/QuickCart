@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quickcart.R
 import com.example.quickcart.model.Product
 
-class ProductAdapter(private val productList: List<Product>) : 
+class ProductAdapter(private var productList: List<Product>) : 
     RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -35,11 +35,27 @@ class ProductAdapter(private val productList: List<Product>) :
         holder.tvProductPrice.text = String.format("$%.2f", product.price)
         
         holder.btnAdd.setOnClickListener {
+            com.example.quickcart.utils.CartManager.addToCart(product)
             Toast.makeText(holder.itemView.context, "Added to cart", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = android.content.Intent(holder.itemView.context, com.example.quickcart.ui.product.ProductDetailsActivity::class.java)
+            intent.putExtra("PRODUCT_ID", product.id)
+            intent.putExtra("PRODUCT_NAME", product.name)
+            intent.putExtra("PRODUCT_PRICE", product.price)
+            intent.putExtra("PRODUCT_IMAGE", product.image)
+            intent.putExtra("PRODUCT_CATEGORY", product.category)
+            holder.itemView.context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
         return productList.size
+    }
+
+    fun updateData(newList: List<Product>) {
+        productList = newList
+        notifyDataSetChanged()
     }
 }

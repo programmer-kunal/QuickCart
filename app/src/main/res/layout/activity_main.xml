@@ -84,7 +84,7 @@
             <!-- Promotional Banner -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:layout_marginTop="24dp"
                 app:cardCornerRadius="24dp"
                 app:cardBackgroundColor="#006E2B"
@@ -109,24 +109,24 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="24dp">
+                        android:padding="16dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Get 50% OFF\non your first order"
                             android:textColor="#FFFFFF"
-                            android:textSize="24sp"
+                            android:textSize="20sp"
                             android:fontFamily="sans-serif-medium"
                             android:textStyle="bold" />
 
                         <com.google.android.material.button.MaterialButton
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:layout_marginTop="16dp"
+                            android:layout_height="32dp"
+                            android:layout_marginTop="12dp"
                             android:text="Order Now"
                             android:textColor="#006E2B"
-                            android:textSize="14sp"
+                            android:textSize="12sp"
                             android:fontFamily="sans-serif-medium"
                             android:textAllCaps="false"
                             app:cornerRadius="999dp"
@@ -138,133 +138,177 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Categories Section -->
-            <LinearLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="32dp"
-                android:weightSum="5">
+                android:layout_marginTop="24dp"
+                android:scrollbars="none"
+                android:clipToPadding="false">
 
-                <!-- Fruits -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/bg_category_circle"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_category_fruits"
-                        app:tint="#006E2B"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fruits"
-                        android:textSize="12sp"
-                        android:textColor="#161D16"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="sans-serif-medium"/>
-                </LinearLayout>
+                    android:orientation="horizontal">
 
-                <!-- Vegetables -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/bg_category_circle"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_category_vegetables"
-                        app:tint="#006E2B"/>
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- All -->
+                    <LinearLayout
+                        android:id="@+id/llCatAll"
+                        android:layout_width="72dp"
                         android:layout_height="wrap_content"
-                        android:text="Veg"
-                        android:textSize="12sp"
-                        android:textColor="#161D16"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="sans-serif-medium"/>
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/ivCatAll"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_category_circle"
+                            android:backgroundTint="#1AB64F"
+                            android:padding="14dp"
+                            android:src="@android:drawable/ic_menu_sort_by_size"
+                            app:tint="#FFFFFF"/>
+                        <TextView
+                            android:id="@+id/tvCatAll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="All"
+                            android:textSize="11sp"
+                            android:textColor="#1AB64F"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
 
-                <!-- Dairy -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/bg_category_circle"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_category_dairy"
-                        app:tint="#006E2B"/>
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Fruits -->
+                    <LinearLayout
+                        android:id="@+id/llCatFruits"
+                        android:layout_width="72dp"
                         android:layout_height="wrap_content"
-                        android:text="Dairy"
-                        android:textSize="12sp"
-                        android:textColor="#161D16"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="sans-serif-medium"/>
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/ivCatFruits"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_category_circle"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_category_fruits"
+                            app:tint="#006E2B"/>
+                        <TextView
+                            android:id="@+id/tvCatFruits"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Fruits"
+                            android:textSize="11sp"
+                            android:textColor="#161D16"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
 
-                <!-- Snacks -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/bg_category_circle"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_category_snacks"
-                        app:tint="#006E2B"/>
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Vegetables -->
+                    <LinearLayout
+                        android:id="@+id/llCatVeg"
+                        android:layout_width="72dp"
                         android:layout_height="wrap_content"
-                        android:text="Snacks"
-                        android:textSize="12sp"
-                        android:textColor="#161D16"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="sans-serif-medium"/>
-                </LinearLayout>
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/ivCatVeg"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_category_circle"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_category_vegetables"
+                            app:tint="#006E2B"/>
+                        <TextView
+                            android:id="@+id/tvCatVeg"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Veg"
+                            android:textSize="11sp"
+                            android:textColor="#161D16"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
 
-                <!-- Beverages -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="64dp"
-                        android:background="@drawable/bg_category_circle"
-                        android:padding="16dp"
-                        android:src="@drawable/ic_category_drinks"
-                        app:tint="#006E2B"/>
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <!-- Dairy -->
+                    <LinearLayout
+                        android:id="@+id/llCatDairy"
+                        android:layout_width="72dp"
                         android:layout_height="wrap_content"
-                        android:text="Drinks"
-                        android:textSize="12sp"
-                        android:textColor="#161D16"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="sans-serif-medium"/>
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/ivCatDairy"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_category_circle"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_category_dairy"
+                            app:tint="#006E2B"/>
+                        <TextView
+                            android:id="@+id/tvCatDairy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dairy"
+                            android:textSize="11sp"
+                            android:textColor="#161D16"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
+
+                    <!-- Snacks -->
+                    <LinearLayout
+                        android:id="@+id/llCatSnacks"
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/ivCatSnacks"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_category_circle"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_category_snacks"
+                            app:tint="#006E2B"/>
+                        <TextView
+                            android:id="@+id/tvCatSnacks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Snacks"
+                            android:textSize="11sp"
+                            android:textColor="#161D16"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
+
+                    <!-- Beverages -->
+                    <LinearLayout
+                        android:id="@+id/llCatDrinks"
+                        android:layout_width="72dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:id="@+id/ivCatDrinks"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_category_circle"
+                            android:padding="12dp"
+                            android:src="@drawable/ic_category_drinks"
+                            app:tint="#006E2B"/>
+                        <TextView
+                            android:id="@+id/tvCatDrinks"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Drinks"
+                            android:textSize="11sp"
+                            android:textColor="#161D16"
+                            android:layout_marginTop="6dp"
+                            android:fontFamily="sans-serif-medium"/>
+                    </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </HorizontalScrollView>
 
             <!-- Product Section Title -->
             <TextView
@@ -293,7 +337,7 @@
     <!-- Bottom Navigation Bar -->
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="72dp"
+        android:layout_height="56dp"
         android:background="@drawable/bg_bottom_nav"
         android:orientation="horizontal"
         android:elevation="16dp"
@@ -317,9 +361,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textColor="#1AB64F"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="sans-serif-medium"/>
         </LinearLayout>
 
@@ -338,9 +382,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Categories"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textColor="#6D7B6B"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="sans-serif-medium"/>
         </LinearLayout>
 
@@ -359,9 +403,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cart"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textColor="#6D7B6B"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="sans-serif-medium"/>
         </LinearLayout>
 
@@ -380,9 +424,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Profile"
-                android:textSize="12sp"
+                android:textSize="11sp"
                 android:textColor="#6D7B6B"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="sans-serif-medium"/>
         </LinearLayout>
     </LinearLayout>
