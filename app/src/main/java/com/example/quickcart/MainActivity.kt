@@ -41,16 +41,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadDummyData() {
         productList.apply {
-            add(Product(1, "Fresh Apples", 2.99, R.mipmap.ic_launcher, "Fruits"))
-            add(Product(2, "Bananas (1 Dozen)", 1.49, R.mipmap.ic_launcher, "Fruits"))
-            add(Product(3, "Organic Carrots", 0.99, R.mipmap.ic_launcher, "Vegetables"))
-            add(Product(4, "Broccoli Crown", 1.89, R.mipmap.ic_launcher, "Vegetables"))
-            add(Product(5, "Whole Milk 1L", 2.49, R.mipmap.ic_launcher, "Dairy"))
-            add(Product(6, "Cheddar Cheese", 4.99, R.mipmap.ic_launcher, "Dairy"))
-            add(Product(7, "Potato Chips", 3.49, R.mipmap.ic_launcher, "Snacks"))
-            add(Product(8, "Mixed Nuts", 6.99, R.mipmap.ic_launcher, "Snacks"))
-            add(Product(9, "Orange Juice", 3.99, R.mipmap.ic_launcher, "Beverages"))
-            add(Product(10, "Sparkling Water", 1.29, R.mipmap.ic_launcher, "Beverages"))
+            add(Product(1, "Fresh Apples", 2.99, R.drawable.img_apples, "Fruits"))
+            add(Product(2, "Bananas (1 Dozen)", 1.49, R.drawable.img_bananas, "Fruits"))
+            add(Product(3, "Organic Carrots", 0.99, R.drawable.img_vegetables, "Vegetables"))
+            add(Product(4, "Broccoli Crown", 1.89, R.drawable.img_vegetables, "Vegetables"))
+            add(Product(5, "Whole Milk 1L", 2.49, R.drawable.img_milk, "Dairy"))
+            add(Product(6, "Cheddar Cheese", 4.99, R.drawable.img_milk, "Dairy"))
+            add(Product(7, "Potato Chips", 3.49, R.drawable.img_snacks, "Snacks"))
+            add(Product(8, "Mixed Nuts", 6.99, R.drawable.img_snacks, "Snacks"))
+            add(Product(9, "Orange Juice", 3.99, R.drawable.ic_category_drinks, "Beverages"))
+            add(Product(10, "Sparkling Water", 1.29, R.drawable.ic_category_drinks, "Beverages"))
         }
         productAdapter.notifyDataSetChanged()
     }

@@ -90,35 +90,51 @@
                 app:cardBackgroundColor="#006E2B"
                 app:strokeWidth="0dp">
 
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="24dp">
+                    android:layout_height="match_parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_promo_banner" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#B3006E2B" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Get 50% OFF\non your first order"
-                        android:textColor="#FFFFFF"
-                        android:textSize="24sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:textStyle="bold" />
+                        android:orientation="vertical"
+                        android:padding="24dp">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginTop="16dp"
-                        android:text="Order Now"
-                        android:textColor="#006E2B"
-                        android:textSize="14sp"
-                        android:fontFamily="sans-serif-medium"
-                        android:textAllCaps="false"
-                        app:cornerRadius="999dp"
-                        app:backgroundTint="#FFD700"
-                        android:insetTop="0dp"
-                        android:insetBottom="0dp" />
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Get 50% OFF\non your first order"
+                            android:textColor="#FFFFFF"
+                            android:textSize="24sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Order Now"
+                            android:textColor="#006E2B"
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textAllCaps="false"
+                            app:cornerRadius="999dp"
+                            app:backgroundTint="#FFD700"
+                            android:insetTop="0dp"
+                            android:insetBottom="0dp" />
+                    </LinearLayout>
+                </FrameLayout>
             </com.google.android.material.card.MaterialCardView>
 
             <!-- Categories Section -->
@@ -141,7 +157,7 @@
                         android:layout_height="64dp"
                         android:background="@drawable/bg_category_circle"
                         android:padding="16dp"
-                        android:src="@android:drawable/ic_menu_gallery"
+                        android:src="@drawable/ic_category_fruits"
                         app:tint="#006E2B"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -165,7 +181,7 @@
                         android:layout_height="64dp"
                         android:background="@drawable/bg_category_circle"
                         android:padding="16dp"
-                        android:src="@android:drawable/ic_menu_compass"
+                        android:src="@drawable/ic_category_vegetables"
                         app:tint="#006E2B"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -189,7 +205,7 @@
                         android:layout_height="64dp"
                         android:background="@drawable/bg_category_circle"
                         android:padding="16dp"
-                        android:src="@android:drawable/ic_menu_day"
+                        android:src="@drawable/ic_category_dairy"
                         app:tint="#006E2B"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -213,7 +229,7 @@
                         android:layout_height="64dp"
                         android:background="@drawable/bg_category_circle"
                         android:padding="16dp"
-                        android:src="@android:drawable/ic_menu_manage"
+                        android:src="@drawable/ic_category_snacks"
                         app:tint="#006E2B"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -237,7 +253,7 @@
                         android:layout_height="64dp"
                         android:background="@drawable/bg_category_circle"
                         android:padding="16dp"
-                        android:src="@android:drawable/ic_menu_camera"
+                        android:src="@drawable/ic_category_drinks"
                         app:tint="#006E2B"/>
                     <TextView
                         android:layout_width="wrap_content"
@@ -295,7 +311,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_compass"
+                android:src="@drawable/ic_nav_home"
                 app:tint="#1AB64F"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -316,7 +332,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_sort_by_size"
+                android:src="@drawable/ic_nav_categories"
                 app:tint="#6D7B6B"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -337,7 +353,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_myplaces"
+                android:src="@drawable/ic_nav_cart"
                 app:tint="#6D7B6B"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -358,7 +374,7 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@android:drawable/ic_menu_info_details"
+                android:src="@drawable/ic_nav_profile"
                 app:tint="#6D7B6B"/>
             <TextView
                 android:layout_width="wrap_content"
