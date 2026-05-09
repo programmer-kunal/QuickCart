@@ -26,11 +26,20 @@ class CartActivity : AppCompatActivity() {
     private lateinit var tvTotalAmount: TextView
     private lateinit var btnCheckout: MaterialButton
     private lateinit var llEmptyCart: android.widget.LinearLayout
-    private lateinit var svCartContent: android.widget.ScrollView
+    private lateinit var svCartContent: androidx.core.widget.NestedScrollView
 
     override fun onResume() {
         super.onResume()
         com.example.quickcart.utils.NavigationUtils.setupBottomNavigation(this, com.example.quickcart.R.id.navCart)
+        if (::cartAdapter.isInitialized) {
+            cartAdapter.updateData(CartManager.cartItems.toList())
+            updateBillSummary()
+        }
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

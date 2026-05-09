@@ -42,17 +42,26 @@ class CartAdapter(
 
         holder.btnCartPlus.setOnClickListener {
             CartManager.updateQuantity(item.product.id, item.quantity + 1)
-            updateData()
+            notifyItemChanged(holder.bindingAdapterPosition)
+            onCartUpdated()
         }
 
         holder.btnCartMinus.setOnClickListener {
             if (item.quantity <= 1) {
                 CartManager.removeFromCart(item.product.id)
+                val currentPos = holder.bindingAdapterPosition
+                if (currentPos != RecyclerView.NO_POSITION) {
+                    val updatedList = CartManager.cartItems.toList()
+                    cartItems = updatedList
+                    notifyItemRemoved(currentPos)
+                    notifyItemRangeChanged(currentPos, updatedList.size)
+                }
                 android.widget.Toast.makeText(holder.itemView.context, "Item removed from cart", android.widget.Toast.LENGTH_SHORT).show()
             } else {
                 CartManager.updateQuantity(item.product.id, item.quantity - 1)
+                notifyItemChanged(holder.bindingAdapterPosition)
             }
-            updateData()
+            onCartUpdated()
         }
     }
 
@@ -60,9 +69,8 @@ class CartAdapter(
         return cartItems.size
     }
 
-    private fun updateData() {
-        cartItems = CartManager.cartItems.toList()
-        notifyDataSetChanged() // Simplified for internship level, full diffing is complex without MVVM.
-        onCartUpdated()
+    fun updateData(newCartItems: List<CartItem>) {
+        this.cartItems = newCartItems
+        notifyDataSetChanged()
     }
 }

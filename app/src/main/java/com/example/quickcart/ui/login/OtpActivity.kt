@@ -24,7 +24,10 @@ class OtpActivity : AppCompatActivity() {
             if (otp == "1234") {
                 val mobileNumber = intent.getStringExtra("MOBILE_NUMBER") ?: ""
                 val sharedPreferences = getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
-                sharedPreferences.edit().putString("USER_PHONE", mobileNumber).apply()
+                sharedPreferences.edit()
+                    .putString("USER_PHONE", mobileNumber)
+                    .putBoolean("is_logged_in", true)
+                    .apply()
 
                 // On successful verification navigate to MainActivity
                 val intent = Intent(this, MainActivity::class.java)
