@@ -46,7 +46,12 @@ class CartAdapter(
         }
 
         holder.btnCartMinus.setOnClickListener {
-            CartManager.updateQuantity(item.product.id, item.quantity - 1)
+            if (item.quantity <= 1) {
+                CartManager.removeFromCart(item.product.id)
+                android.widget.Toast.makeText(holder.itemView.context, "Item removed from cart", android.widget.Toast.LENGTH_SHORT).show()
+            } else {
+                CartManager.updateQuantity(item.product.id, item.quantity - 1)
+            }
             updateData()
         }
     }
@@ -57,7 +62,7 @@ class CartAdapter(
 
     private fun updateData() {
         cartItems = CartManager.cartItems.toList()
-        notifyDataSetChanged()
+        notifyDataSetChanged() // Simplified for internship level, full diffing is complex without MVVM.
         onCartUpdated()
     }
 }

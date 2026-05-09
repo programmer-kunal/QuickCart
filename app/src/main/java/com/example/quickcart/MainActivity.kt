@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quickcart.adapter.ProductAdapter
 import com.example.quickcart.model.Product
+import com.example.quickcart.utils.NavigationUtils
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var llCatSnacks: LinearLayout
     private lateinit var llCatDrinks: LinearLayout
 
+    override fun onResume() {
+        super.onResume()
+        com.example.quickcart.utils.NavigationUtils.setupBottomNavigation(this, com.example.quickcart.R.id.navHome)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -52,6 +58,27 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
         loadDummyData()
         setupListeners()
+        handleCategoryIntent(intent)
+    }
+
+    override fun onNewIntent(intent: android.content.Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
+        handleCategoryIntent(intent)
+    }
+
+    private fun handleCategoryIntent(intent: android.content.Intent?) {
+        val category = intent?.getStringExtra("SELECTED_CATEGORY")
+        if (category != null) {
+            when (category) {
+                "Fruits" -> selectCategory("Fruits", llCatFruits)
+                "Vegetables" -> selectCategory("Vegetables", llCatVeg)
+                "Dairy" -> selectCategory("Dairy", llCatDairy)
+                "Snacks" -> selectCategory("Snacks", llCatSnacks)
+                "Drinks" -> selectCategory("Drinks", llCatDrinks)
+                else -> selectCategory("All", llCatAll)
+            }
+        }
     }
 
     private fun initViews() {
@@ -66,6 +93,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         rvProducts = findViewById(R.id.rvProducts)
+        rvProducts.setHasFixedSize(true)
         rvProducts.layoutManager = GridLayoutManager(this, 2)
         productAdapter = ProductAdapter(displayedProducts)
         rvProducts.adapter = productAdapter
@@ -106,11 +134,6 @@ class MainActivity : AppCompatActivity() {
         llCatDairy.setOnClickListener { selectCategory("Dairy", llCatDairy) }
         llCatSnacks.setOnClickListener { selectCategory("Snacks", llCatSnacks) }
         llCatDrinks.setOnClickListener { selectCategory("Drinks", llCatDrinks) }
-
-        // Cart Navigation
-        findViewById<ImageView>(R.id.btnNavCart).setOnClickListener {
-            startActivity(android.content.Intent(this, com.example.quickcart.ui.cart.CartActivity::class.java))
-        }
     }
 
     private fun selectCategory(category: String, selectedLayout: LinearLayout) {

@@ -22,6 +22,10 @@ class OtpActivity : AppCompatActivity() {
             
             // Validate fake OTP "1234"
             if (otp == "1234") {
+                val mobileNumber = intent.getStringExtra("MOBILE_NUMBER") ?: ""
+                val sharedPreferences = getSharedPreferences("UserPrefs", android.content.Context.MODE_PRIVATE)
+                sharedPreferences.edit().putString("USER_PHONE", mobileNumber).apply()
+
                 // On successful verification navigate to MainActivity
                 val intent = Intent(this, MainActivity::class.java)
                 // Clear the back stack so user can't navigate back to login flow

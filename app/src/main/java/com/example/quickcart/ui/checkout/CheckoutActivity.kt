@@ -29,12 +29,27 @@ class CheckoutActivity : AppCompatActivity() {
 
         val tvCheckoutItemsCount = findViewById<TextView>(R.id.tvCheckoutItemsCount)
         val tvCheckoutSubtotal = findViewById<TextView>(R.id.tvCheckoutSubtotal)
+        val rgPayment = findViewById<android.widget.RadioGroup>(R.id.rgPayment)
+        val btnPlaceOrder = findViewById<MaterialButton>(R.id.btnPlaceOrder)
         
         tvCheckoutItemsCount.text = "Items Total (${CartManager.getTotalItems()})"
         tvCheckoutSubtotal.text = String.format("$%.2f", CartManager.getSubtotal())
 
-        findViewById<MaterialButton>(R.id.btnPlaceOrder).setOnClickListener {
-            startActivity(Intent(this, OrderSuccessActivity::class.java))
+        btnPlaceOrder.setOnClickListener {
+            if (rgPayment.checkedRadioButtonId == -1) {
+                android.widget.Toast.makeText(this, "Please select a payment method", android.widget.Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Prevent multiple clicks and show loading state
+            btnPlaceOrder.isEnabled = false
+            btnPlaceOrder.text = "Processing..."
+            btnPlaceOrder.setBackgroundColor(android.graphics.Color.parseColor("#A0A0A0"))
+
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this, OrderSuccessActivity::class.java))
+                finish()
+            }, 1500)
         }
     }
 }

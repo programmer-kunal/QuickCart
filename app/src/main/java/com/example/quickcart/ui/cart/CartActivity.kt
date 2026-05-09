@@ -25,6 +25,13 @@ class CartActivity : AppCompatActivity() {
     private lateinit var tvSubtotal: TextView
     private lateinit var tvTotalAmount: TextView
     private lateinit var btnCheckout: MaterialButton
+    private lateinit var llEmptyCart: android.widget.LinearLayout
+    private lateinit var svCartContent: android.widget.ScrollView
+
+    override fun onResume() {
+        super.onResume()
+        com.example.quickcart.utils.NavigationUtils.setupBottomNavigation(this, com.example.quickcart.R.id.navCart)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +50,8 @@ class CartActivity : AppCompatActivity() {
         tvSubtotal = findViewById(R.id.tvSubtotal)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         btnCheckout = findViewById(R.id.btnCheckout)
+        llEmptyCart = findViewById(R.id.llEmptyCart)
+        svCartContent = findViewById(R.id.svCartContent)
 
         setupRecyclerView()
         updateBillSummary()
@@ -76,6 +85,18 @@ class CartActivity : AppCompatActivity() {
         tvTotalAmount.text = String.format("$%.2f", subtotal)
         
         // Update checkout button text to include total
-        btnCheckout.text = String.format("Checkout $%.2f", subtotal)
+        if (totalItems > 0) {
+            btnCheckout.text = String.format("Checkout $%.2f", subtotal)
+            btnCheckout.isEnabled = true
+            btnCheckout.setBackgroundColor(android.graphics.Color.parseColor("#1AB64F"))
+            llEmptyCart.visibility = android.view.View.GONE
+            svCartContent.visibility = android.view.View.VISIBLE
+        } else {
+            btnCheckout.text = "Checkout"
+            btnCheckout.isEnabled = false
+            btnCheckout.setBackgroundColor(android.graphics.Color.parseColor("#A0A0A0"))
+            llEmptyCart.visibility = android.view.View.VISIBLE
+            svCartContent.visibility = android.view.View.GONE
+        }
     }
 }

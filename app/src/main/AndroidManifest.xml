@@ -27,6 +27,8 @@
         <activity android:name=".ui.cart.CartActivity" />
         <activity android:name=".ui.checkout.CheckoutActivity" />
         <activity android:name=".ui.checkout.OrderSuccessActivity" />
+        <activity android:name=".ui.categories.CategoriesActivity" />
+        <activity android:name=".ui.profile.ProfileActivity" />
     </application>
 
 </manifest>

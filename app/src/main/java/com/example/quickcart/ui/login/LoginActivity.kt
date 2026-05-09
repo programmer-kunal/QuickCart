@@ -22,6 +22,7 @@ class LoginActivity : AppCompatActivity() {
             // Simple validation: Ensure number is not empty and has 10 digits
             if (mobileNumber.isNotEmpty() && mobileNumber.length == 10) {
                 val intent = Intent(this, OtpActivity::class.java)
+                intent.putExtra("MOBILE_NUMBER", mobileNumber)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Please enter a valid 10-digit mobile number", Toast.LENGTH_SHORT).show()

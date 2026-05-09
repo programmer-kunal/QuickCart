@@ -27,6 +27,7 @@ class OrderSuccessActivity : AppCompatActivity() {
         findViewById<MaterialButton>(R.id.btnContinueShopping).setOnClickListener {
             // Clear cart
             CartManager.clearCart()
+            android.widget.Toast.makeText(this, "Cart cleared successfully", android.widget.Toast.LENGTH_SHORT).show()
             
             // Navigate to Home and clear stack
             val intent = Intent(this, MainActivity::class.java)
